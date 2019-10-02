@@ -8,6 +8,7 @@
     <title>Dropzone</title>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 </head>
 
 <body>
@@ -24,35 +25,9 @@
             </form>
         </div>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                Dropzone.autoDiscover = false;
-                var dropzone = new Dropzone("#dropzoneForm", {
-                    maxFilesize: 2,
-                    maxFiles: 1,
-                    acceptedFiles: ".pdf",
-                    dictMaxFilesExceeded: "Limite de archivos excedido  "
-                });
+        <script src="assets/js/main.js"></script>
 
-                dropzone.on("success", function(file) {
-                    console.log(`${file.name} agregado satisfactoriamente`);
-                });
-
-
-                dropzone.on("error", function(file) {
-                    dropzone.removeFile(file);
-                    console.log("Wrong file. Please select a valid file");
-                });
-
-                console.log("Msg:",Dropzone.prototype.defaultOptions.dictMaxFilesExceeded);
-
-                dropzone.on("addedfile", function(file) {
-                    console.log("File: ", file.previewElement);
-                });
-
-            });
-        </script>
-
+        <script src="assets/js/dropzone.prototype.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.js"></script>
 
     </body>
