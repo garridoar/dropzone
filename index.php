@@ -30,16 +30,24 @@
                 var dropzone = new Dropzone("#dropzoneForm", {
                     maxFilesize: 2,
                     maxFiles: 1,
-                    acceptedFiles: ".pdf"
+                    acceptedFiles: ".pdf",
+                    dictMaxFilesExceeded: "Limite de archivos excedido  "
                 });
 
                 dropzone.on("success", function(file) {
                     console.log(`${file.name} agregado satisfactoriamente`);
                 });
 
+
                 dropzone.on("error", function(file) {
                     dropzone.removeFile(file);
                     console.log("Wrong file. Please select a valid file");
+                });
+
+                console.log("Msg:",Dropzone.prototype.defaultOptions.dictMaxFilesExceeded);
+
+                dropzone.on("addedfile", function(file) {
+                    console.log("File: ", file.previewElement);
                 });
 
             });

@@ -30,4 +30,8 @@ h1 { text-align: center; }
     height: 50px;
 }
 
+.dz-image {
+    display:none !important;
+}
+
 
