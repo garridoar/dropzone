@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
 
     Dropzone.autoDiscover = false;
     var dropzone = new Dropzone("#dropzoneForm", {
@@ -7,21 +7,24 @@ document.addEventListener("DOMContentLoaded", function () {
         acceptedFiles: ".pdf"
     });
 
-    dropzone.on("success", function (file) {
+    dropzone.on("success", function(file) {
         console.log(`${file.name} agregado satisfactoriamente`);
     });
 
 
-    dropzone.on("error", function (file, errorMessage) {
+    dropzone.on("error", function(file, errorMessage) {
         dropzone.removeFile(file);
         console.log("Error message: ", errorMessage);
     });
 
-    // document.querySelector(".dz-preview").addEventListener("mouseover", function () {
-    //     document.getElementById("dropzone").classList.add("animated");
-    //     document.getElementById("dropzone").classList.add("bounce");
-    //     document.getElementById("dropzone").classList.add("delay-1s");
+    // dropzone.on("addedfile", function () {
+    //     document.querySelector(".dz-preview").addEventListener("mouseover", function () {
+    //         document.getElementById("dropzone").classList.add("animated", "bounce", "delay-1s");
+    //     });
     // });
 
+    // document.querySelector(".dz-preview").addEventListener("mouseover", function () {
+    //         document.getElementById("dropzone").classList.add("animated", "bounce", "delay-1s");
+    // });
 
 });

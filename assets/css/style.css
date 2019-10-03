@@ -9,7 +9,9 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-h1 { text-align: center; }
+h1 {
+    text-align: center;
+}
 
 .dropzone {
     background: white;
@@ -22,7 +24,7 @@ h1 { text-align: center; }
 }
 
 .note {
-    font-size: 13px;    
+    font-size: 13px;
 }
 
 .dz-preview {
@@ -31,24 +33,11 @@ h1 { text-align: center; }
 }
 
 .dz-image {
-    display:none !important;
+    display: none !important;
 }
 
 .dz-details {
     background-color: aliceblue;
     border: 1px solid aliceblue;
-    border-radius: 5px;
+    border-radius: 10px;
 }
-
-
-.dz-preview:hover {
-    opacity: 0.07;
-    -webkit-transition: opacity 500ms;
-    -moz-transition: opacity 500ms;
-    -o-transition: opacity 500ms;
-    -ms-transition: opacity 500ms;
-    transition: opacity 500ms;
-  }
-
-
-
