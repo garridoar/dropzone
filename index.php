@@ -26,6 +26,8 @@
             </form>
         </div>
 
+        <br><br>
+
         <div id="download">
             <button id="download-btn">DESCARGAR FACTURA</button>
             <a id="download-target" href="" style="display:none"></a>
