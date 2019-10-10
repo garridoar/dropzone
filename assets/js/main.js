@@ -33,6 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+
+    MicroModal.init();
+
     // dropzone.on("addedfile", function () {
     //     document.querySelector(".dz-preview").addEventListener("mouseover", function () {
     //         document.getElementById("dropzone").classList.add("animated", "bounce", "delay-1s");

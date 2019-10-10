@@ -12,22 +12,32 @@ $date = date("Y-m-d H:i:s");
 $file_name = $date . $_FILES["file"]["name"];
 
 //Hardcored
-$uploaded_user_id_hardcore = random_int ( 1 , 5000 );
-$transfer_id_hardcore  = random_int(1, 500);
+$uploaded_user_id_hardcore = random_int(1, 5000);
+$transfer_id_hardcore  = 174; // random_int(1, 500)
 
 if (file_exists($destination . $file_name)) {
     echo "File already exists.";
 } else {
     if (move_uploaded_file($tmp_name, "$destination/$file_name")) {
-        $sql = "INSERT INTO 
+
+        $update_sql = "UPDATE ti8xYXbvO3.transfers_files
+                        SET `state`=0
+                        WHERE transfer_id = $transfer_id_hardcore";
+
+        if (mysqli_query($mysqli, $update_sql)) {
+            echo "Files updated successfully.";
+        } else {
+            die(mysqli_error($mysqli));
+        }
+
+        $create_sql = "INSERT INTO 
                     ti8xYXbvO3.transfers_files(file_name, transfer_id, `state`, creation_date, size, uploaded_user_id) 
                 VALUES
                     ('$file_name', $transfer_id_hardcore , $ACTIVE, '$date', $file_size, $uploaded_user_id_hardcore )";
-        if (mysqli_query($mysqli, $sql)) {
+        if (mysqli_query($mysqli, $create_sql)) {
             echo "File uploaded successfully.";
-        }
-        else {
-            echo mysqli_error($mysqli);
+        } else {
+            die(mysqli_error($mysqli));
         }
     } else {
         echo "Failed to upload file.";
@@ -35,5 +45,3 @@ if (file_exists($destination . $file_name)) {
 }
 
 // header("Location: index.php");
-
-?>
