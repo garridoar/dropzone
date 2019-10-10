@@ -26,6 +26,11 @@
             </form>
         </div>
 
+        <div id="download">
+            <button id="download-btn">DESCARGAR FACTURA</button>
+            <a id="download-target" href="" style="display:none"></a>
+        </div>
+
         <script src="assets/js/main.js"></script>
 
         <script src="assets/js/dropzone.prototype.js"></script>

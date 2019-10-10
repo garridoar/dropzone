@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     Dropzone.autoDiscover = false;
-    var dropzone = new Dropzone("#dropzoneForm", {
+    const dropzone = new Dropzone("#dropzoneForm", {
         maxFilesize: 2,
         maxFiles: 1,
         acceptedFiles: ".pdf"
@@ -17,52 +17,21 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Error message: ", errorMessage);
     });
 
-    $.when(
-        $.getJSON('./getTransfer.php')
-    ).done(function (a0) {
-        data = a0[0];
-        var mockFile = {
-            name: data.file_name,
-            size: data.size
-        };
-        dropzone.emit("addedfile", mockFile);
-        dropzone.emit("complete", mockFile);
-        dropzone.emit("maxfilesreached", mockFile);
+    let downloadBtn = document.getElementById("download-btn");
+    let downloadTarget = document.getElementById("download-target");
+
+    downloadBtn.addEventListener('click', function () {
+        let id = 174;
+        $.getJSON(`getTransfer.php?id=${id}`, function (transferFileData, status) {
+            if (status == 'success') {
+                downloadTarget.href = `getFile.php?file_name=${transferFileData.file_name}`;
+                downloadTarget.click();
+            }
+            else {
+                throw new Error('Transfer file data havent been found');
+            }
+        });
     });
-
-    // $.getJSON('./getTransfer.php', function (data, status) {
-    //     if (status == "success") {
-    //         console.log(data);
-    //         var mockFile = {
-    //             name: data.file_name,
-    //             size: data.size
-    //         };
-    //         dropzone.emit("addedfile", mockFile);
-    //         dropzone.emit("complete", mockFile);
-    //         dropzone.emit("maxfilesreached");
-    //     }
-    // });
-
-
-    // function mockFileFunction(data) {
-    //     console.log("DEntro: " , data);
-    //     var mockFile = {
-    //         name: data.file_name,
-    //         size: data.size
-    //     };
-    //     // dropzone.emit("addedfile", mockFile);
-    //     // dropzone.emit("complete", mockFile);
-
-    //     $.get(`getFile.php?file_name=${data.file_name}`, null, function(data) {
-    //         console.log("File received", data);
-    //     });
-    //     dropzone.accept(file, function(err) {
-    //         if(err)
-    //             console.error("No file found. ", err);
-    //     }); 
-
-    // }
-
 
     // dropzone.on("addedfile", function () {
     //     document.querySelector(".dz-preview").addEventListener("mouseover", function () {
