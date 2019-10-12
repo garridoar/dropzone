@@ -4,7 +4,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropzone = new Dropzone("#dropzoneForm", {
         maxFilesize: 2,
         maxFiles: 1,
-        acceptedFiles: ".pdf"
+        acceptedFiles: ".pdf",
+        dictMaxFilesExceeded: "Sólo se permite adjuntar una factura por transfer",
+        dictFileTooBig: "El archivo es muy grande ({{filesize}}MiB). Tamaño máx permitido: {{maxFilesize}}MiB.",
+        dictInvalidFileType: "El formato de archivo no es válido. Formatos válidos: pdf",
+        uploadprogress: function(file, progress, bytesSent) {
+            // function move() {
+            //     var elem = document.getElementById("myBar");
+            //     var id = setInterval(frame, 10);
+            //     function frame() {
+            //       if (progress >= 100) {
+            //         clearInterval(id);
+            //         console.log("clear");
+            //       } else {
+            //         elem.style.width = progress + '%';
+            //       }
+            //     }
+            //   };
+            //   move();
+        }
     });
 
     dropzone.on("success", function (file) {

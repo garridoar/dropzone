@@ -11,6 +11,8 @@
     <!-- <link rel="stylesheet" href="assets/css/bounce.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="assets/css/micromodal.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -29,7 +31,7 @@
 
         <br><br>
 
-        <div id="download">
+        <!-- <div id="download">
             <button id="download-btn">DESCARGAR FACTURA</button>
             <a id="download-target" href="" style="display:none"></a>
         </div>
@@ -58,7 +60,13 @@
             </div>
         </div>
 
-        <button data-micromodal-trigger="modal-1">Click click</button>
+        <button data-micromodal-trigger="modal-1">Click click</button> -->
+
+        <br><br>
+<!-- 
+        <div id="myProgress">
+            <div id="myBar"></div>
+        </div> -->
 
 
         <script src="assets/js/main.js"></script>

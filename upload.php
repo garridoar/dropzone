@@ -18,10 +18,11 @@ $transfer_id_hardcore  = 174; // random_int(1, 500)
 if (file_exists($destination . $file_name)) {
     echo "File already exists.";
 } else {
+    die();
     if (move_uploaded_file($tmp_name, "$destination/$file_name")) {
 
         $update_sql = "UPDATE ti8xYXbvO3.transfers_files
-                        SET `state`=0
+                        SET `state` = 0
                         WHERE transfer_id = $transfer_id_hardcore";
 
         if (mysqli_query($mysqli, $update_sql)) {
